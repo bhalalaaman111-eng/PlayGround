@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101a27">
+  <title>Cloudhaven — A floating island builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Cloudhaven home"><span class="brand-mark">✦</span><span>CLOUDHAVEN<small>ISLAND JOURNAL</small></span></a>
+      <div class="top-center"><span class="season-dot"></span> <span>THE WINDWARD ISLES</span><span class="top-divider"></span><span id="day-label">DAY 01</span></div>
+      <div class="top-actions"><button class="icon-btn" id="sound-btn" title="Toggle sound" aria-label="Toggle sound">♫</button><button class="icon-btn" id="help-btn" title="How to play" aria-label="How to play">?</button><button class="avatar-btn" id="wardrobe-btn" title="Open wardrobe">A</button></div>
+    </header>
+    <section class="game-area">
+      <canvas id="game" aria-label="Cloudhaven island game"></canvas>
+      <div class="scene-vignette"></div>
+      <div class="quest-card glass"><div class="quest-kicker"><span class="quest-icon">✧</span> ISLAND TALE <span class="quest-step" id="quest-step">01 / 03</span></div><h1 id="quest-title">A wind in the ruins</h1><p id="quest-copy">The old beacon has gone quiet. Gather what the island gives, then bring its light back.</p><div class="quest-progress"><span id="quest-progress-fill"></span></div><div class="quest-foot"><span id="quest-progress-text">Explore your island</span><span id="reward-label">✦ 120</span></div></div>
+      <div class="weather-pill glass"><span class="weather-icon">☀</span><span>SOFT BREEZE</span><span class="weather-sep">·</span><span id="clock-label">09:24</span></div>
+      <div class="resource-tray glass" aria-label="Resources"><div class="resource"><span class="resource-icon wood-icon">▰</span><span><b id="wood-count">0</b><small>WOOD</small></span></div><i></i><div class="resource"><span class="resource-icon stone-icon">◆</span><span><b id="stone-count">0</b><small>STONE</small></span></div><i></i><div class="resource"><span class="resource-icon crystal-icon">✦</span><span><b id="crystal-count">0</b><small>ESSENCE</small></span></div></div>
+      <div class="toast" id="toast" role="status"></div>
+      <div class="interaction-hint" id="interaction-hint"></div>
+      <div class="mobile-controls" aria-label="Touch controls"><div class="dpad"><button data-dir="up" aria-label="Move up">▲</button><div><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div></div><button class="mobile-action" id="mobile-action">GATHER</button></div>
+      <div class="bottom-hud"><div class="left-hud"><button class="map-btn glass" id="map-btn"><span>⌖</span> ISLAND MAP</button><span class="control-tip"><kbd>WASD</kbd> MOVE <kbd>E</kbd> GATHER <kbd>B</kbd> BUILD</span></div><div class="right-hud"><span class="build-label" id="build-label">BUILD MODE</span><button class="build-btn" id="build-btn"><span>＋</span> BUILD</button><button class="journal-btn glass" id="journal-btn">☰ <span>JOURNAL</span></button></div></div>
+    </section>
+    <footer class="footer"><span>✦ YOUR ISLAND, YOUR STORY</span><span>PROGRESS SAVES ON THIS DEVICE</span></footer>
+  </main>
+  <aside class="build-panel" id="build-panel" aria-hidden="true"><div class="panel-head"><div><small>ISLAND WORKSHOP</small><h2>Make it yours</h2></div><button class="close-btn" data-close="build-panel" aria-label="Close">×</button></div><p class="panel-note">Choose a blueprint, then tap an open tile to place it.</p><div class="blueprint-list" id="blueprint-list"></div><div class="panel-tip">A little planning goes a long way. You can move freely while the workshop is open.</div></aside>
+  <aside class="build-panel side-panel" id="wardrobe-panel" aria-hidden="true"><div class="panel-head"><div><small>TRAVELER'S ATELIER</small><h2>Wear your tale</h2></div><button class="close-btn" data-close="wardrobe-panel" aria-label="Close">×</button></div><p class="panel-note">Earn star tokens as you restore the island. Every look is yours to keep.</p><div class="skin-list" id="skin-list"></div><div class="panel-tip">Cosmetics only — your island adventure is always free.</div></aside>
+  <aside class="journal-panel" id="journal-panel" aria-hidden="true"><div class="panel-head"><div><small>FIELD NOTES · DAY 01</small><h2>Island journal</h2></div><button class="close-btn" data-close="journal-panel" aria-label="Close">×</button></div><div class="journal-content" id="journal-content"></div></aside>
+  <div class="modal-backdrop" id="modal-backdrop" hidden><section class="modal glass" id="modal"><button class="close-btn modal-close" id="modal-close" aria-label="Close">×</button><div class="modal-symbol">✦</div><small id="modal-eyebrow">A NOTE FROM THE WIND</small><h2 id="modal-title">Welcome to Cloudhaven</h2><p id="modal-copy"></p><button class="primary-btn" id="modal-ok">LET'S GO <span>→</span></button></section></div>
+  <script src="game.js"></script>
+</body>
+</html>
