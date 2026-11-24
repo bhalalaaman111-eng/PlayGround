@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <link rel="icon" href="data:," />
+  <title>Gokuldham Game Night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Gokuldham Game Night home">
+        <span class="brand-mark">ग</span><span class="brand-copy">GOKULDHAM<span>GAME NIGHT</span></span>
+      </a>
+      <div class="side-label">THE CLUBHOUSE</div>
+      <nav class="game-nav" aria-label="Choose a game">
+        <button class="nav-item active" data-game="ludo" aria-label="Ludo Royale, 2 to 4 players"><span class="nav-icon ludo-icon">✦</span><span><b>Ludo Royale</b><small>Classic · 2–4 players</small></span><i>›</i></button>
+        <button class="nav-item" data-game="carrom" aria-label="Carrom Clash, 2 players"><span class="nav-icon carrom-icon">◉</span><span><b>Carrom Clash</b><small>Flick · 2 players</small></span><i>›</i></button>
+        <button class="nav-item" data-game="snakes" aria-label="Snakes and Ladders, 2 to 4 players"><span class="nav-icon snakes-icon">↗</span><span><b>Snakes & Ladders</b><small>Race · 2–4 players</small></span><i>›</i></button>
+      </nav>
+      <div class="side-divider"></div>
+      <div class="side-label">YOUR NEIGHBOURS</div>
+      <div class="neighbors">
+        <div class="neighbor"><span class="mini-avatar avatar-jetha">J</span><span><b>Jethalal</b><small><span class="online-dot"></span> In the clubhouse</small></span><span class="online-status"></span></div>
+        <div class="neighbor"><span class="mini-avatar avatar-daya">D</span><span><b>Dayaben</b><small><span class="online-dot"></span> Ready to play</small></span><span class="online-status"></span></div>
+        <div class="neighbor"><span class="mini-avatar avatar-taarak">T</span><span><b>Taarak</b><small>Last seen just now</small></span></div>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="society-card"><div class="society-sun">☀</div><div><b>Society spirit</b><p>Good neighbours<br>make great players.</p></div><span class="sparkle">✦</span></div>
+        <div class="disclaimer">An unofficial fan-made game<br>Not affiliated with the TV show.</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Clubhouse</span><b>/</b><strong id="crumb-game">Ludo Royale</strong></div>
+        <div class="top-actions"><div class="online-pill"><span></span> 4 neighbours online</div><button class="icon-button" id="sound-toggle" title="Toggle sound" aria-label="Toggle sound">♫</button><button class="profile-button"><span class="profile-avatar">A</span><span class="profile-name">Aman <small>Society member</small></span><span class="chevron">⌄</span></button></div>
+      </header>
+      <section class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-star">✦</span> SOCIETY GAME NIGHT <span class="today" id="today-label"></span></div><h1 id="game-title">Roll into <em>good times.</em></h1><p class="welcome-sub" id="game-subtitle">The whole society is waiting. Pick your colour and let the fun begin!</p></div><button class="rules-button" id="rules-button"><span>ⓘ</span> How to play</button></section>
+
+      <section class="game-layout" id="ludo-view">
+        <div class="board-card ludo-card"><div class="board-heading"><div><span class="section-kicker">THE CLASSIC</span><h2>Ludo Royale <span class="live-badge"><i></i> LIVE GAME</span></h2></div><button class="restart-button" data-restart="ludo" title="Start a new game">↻ <span>New game</span></button></div><div class="board-wrap"><div id="ludo-board" class="ludo-board" aria-label="Ludo board"></div></div><div class="board-foot"><span class="tiny-star">✧</span> Made for memorable moments in Gokuldham <span class="foot-dots">•••</span></div></div>
+        <aside class="game-panel"><div class="panel-topline"><span class="section-kicker">YOUR TABLE</span><button class="more-button" aria-label="More options">•••</button></div><div class="turn-banner" id="ludo-turn-banner"><span class="turn-avatar" id="turn-avatar">A</span><div><small>IT'S YOUR TURN</small><b id="turn-name">Aman</b></div><span class="turn-spark">✦</span></div><div class="dice-area"><div class="dice-label">ROLL THE DICE</div><button class="dice-button" id="ludo-roll" aria-label="Roll dice"><span class="dice-face" id="ludo-die">⚄</span><small>TAP TO ROLL</small></button><div class="roll-message" id="ludo-message">A six gets you out of home!</div></div><div class="players-heading"><b>Players</b><span id="ludo-player-count">4 playing</span></div><div class="player-list" id="ludo-players"></div><div class="panel-tip"><span>✦</span><p><b>Quick tip</b><br>Roll a 6 to bring a token onto the board. Land on an opponent to send them home!</p></div></aside>
+      </section>
+
+      <section class="game-layout hidden" id="snakes-view">
+        <div class="board-card snakes-card"><div class="board-heading"><div><span class="section-kicker">THE RACE TO 100</span><h2>Snakes & Ladders <span class="live-badge"><i></i> LIVE GAME</span></h2></div><button class="restart-button" data-restart="snakes">↻ <span>New game</span></button></div><div class="snakes-wrap"><div id="snakes-board" class="snakes-board"></div><div class="board-decor"><span class="ladder-decor">╱╱╱</span><span class="snake-decor">〰</span></div></div><div class="board-foot"><span class="tiny-star">✧</span> Climb high, watch your step <span class="foot-dots">•••</span></div></div>
+        <aside class="game-panel"><div class="panel-topline"><span class="section-kicker">YOUR TABLE</span><button class="more-button">•••</button></div><div class="turn-banner" id="snakes-turn-banner"><span class="turn-avatar" id="snakes-turn-avatar">A</span><div><small>IT'S YOUR TURN</small><b id="snakes-turn-name">Aman</b></div><span class="turn-spark">✦</span></div><div class="dice-area"><div class="dice-label">ROLL THE DICE</div><button class="dice-button" id="snakes-roll"><span class="dice-face" id="snakes-die">⚄</span><small>TAP TO ROLL</small></button><div class="roll-message" id="snakes-message">Roll a 6 to get started!</div></div><div class="players-heading"><b>Players</b><span>Race to 100</span></div><div class="player-list" id="snakes-players"></div><div class="panel-tip"><span>✦</span><p><b>Good to know</b><br>Land on a ladder to climb. A snake will slide you back. Exact roll wins!</p></div></aside>
+      </section>
+
+      <section class="game-layout hidden" id="carrom-view">
+        <div class="board-card carrom-card"><div class="board-heading"><div><span class="section-kicker">THE NEIGHBOURHOOD FAVOURITE</span><h2>Carrom Clash <span class="live-badge"><i></i> LIVE GAME</span></h2></div><button class="restart-button" data-restart="carrom">↻ <span>New game</span></button></div><div class="carrom-wrap"><canvas id="carrom-canvas" aria-label="Carrom board. Drag backwards from the striker to shoot"></canvas><div class="carrom-instruction" id="carrom-instruction">Drag back from the striker, then release to shoot</div></div><div class="board-foot"><span class="tiny-star">✧</span> Drag the striker back and let it fly <span class="foot-dots">•••</span></div></div>
+        <aside class="game-panel"><div class="panel-topline"><span class="section-kicker">YOUR TABLE</span><button class="more-button">•••</button></div><div class="turn-banner"><span class="turn-avatar" id="carrom-turn-avatar">A</span><div><small id="carrom-turn-label">IT'S YOUR TURN</small><b id="carrom-turn-name">Aman</b></div><span class="turn-spark">✦</span></div><div class="scoreboard"><div><small>AMAN</small><b id="score-you">0</b><span>points</span></div><div class="score-vs">VS</div><div><small>JETHALAL</small><b id="score-opponent">0</b><span>points</span></div></div><div class="carrom-controls"><span class="section-kicker">YOUR SHOT</span><p>Flick the striker toward the coins. Pot your colour to score!</p><div class="shot-hint"><span>↖</span> Pull back from the striker<br>and release to shoot</div></div><div class="panel-tip"><span>✦</span><p><b>Carrom tip</b><br>Aim for the corner pockets. The queen is worth 3 points!</p></div></aside>
+      </section>
+      <footer class="page-footer"><span>GOKULDHAM SOCIETY</span><span>GOOD GAMES. GREAT NEIGHBOURS. <b>♥</b></span><span>EST. EVERY EVENING</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="rules-dialog"><button class="dialog-close" id="dialog-close" aria-label="Close">×</button><span class="section-kicker" id="rules-kicker">THE CLASSIC</span><h2 id="rules-title">Ludo Royale</h2><div id="rules-copy"></div><button class="primary-button" id="got-it">Got it, let's play <span>→</span></button></dialog>
+  <script src="game.js"></script>
+</body>
+</html>
